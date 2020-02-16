@@ -4,6 +4,7 @@ const letsPlay = prompt('Would you like to play a 2 player game? [yes] or [no]: 
 function gamePlay() {
   if(letsPlay.toUpperCase() === 'YES') {
     let results = playGame();
+    alert('Results of the game are logged to console.');
   }
   else if (letsPlay.toUpperCase() === 'NO') {
     alert('Have a nice day!');
@@ -11,6 +12,7 @@ function gamePlay() {
   else {
     alert('Invalid input. Enter yes or no.')
   }
+  console.log('Exit game.')
 }
 gamePlay();
 
@@ -37,15 +39,15 @@ function playGame() {
       grantPts = 10;
       numOfWins++;
 
-      console.log(`\n${grantName} defeated. ${userName} has ${numOfWins} out of 3 wins. \n\n`)
+      console.log(`\n${grantName} defeated. ${userName} has ${numOfWins} out of 3 wins. \n\n`);
     }
   }
-      console.log(getResults(userName, numOfWins));
+      let result = getResults(userName, numOfWins);
 }
 
   //Function to generate num for random number of 1 or 2
 function getRandomNum(num) {
-  return Math.floor(Math.random() * 3) + 1;
+  return Math.floor(Math.random() * 2) + 1;
 }
 
 //Function that determines win or loss
@@ -55,3 +57,4 @@ function getResults(userName, numOfWins) {
   else
     console.log(`${userName} has no points left.  ${numOfWins} lost the game.\n\n`);
 }
+
