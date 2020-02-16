@@ -1,9 +1,13 @@
 const letsPlay = prompt('Would you like to play a 2 player game? [yes] or [no]: ');
 
+// Declaring maximum number used for random function that doesn't change (global variable)
+const maxNum = 2;
+
 //Function based on what the user chooses 
 function gamePlay() {
+
   if(letsPlay.toUpperCase() === 'YES') {
-    let results = playGame();
+    playGame();
     alert('Results of the game are logged to console.');
   }
   else if (letsPlay.toUpperCase() === 'NO') {
@@ -14,7 +18,7 @@ function gamePlay() {
   }
   console.log('Exit game.')
 }
-gamePlay();
+  gamePlay();
 
 //Function to run the game
 function playGame() {
@@ -25,8 +29,8 @@ function playGame() {
   let numOfWins = 0;
 
   // While loop to keep iterating when the user has more than 0 points and less than 3 wins
-  while (userPts > 0 && numOfWins !=3) {
-    let ranNum = getRandomNum(2); //Get a random number
+    while (userPts > 0 && numOfWins !=3) {
+    let ranNum = getRandomNum(); //Get a random number
     userPts = userPts - ranNum; 
     grantPts = grantPts - ranNum;
     
@@ -41,13 +45,13 @@ function playGame() {
 
       console.log(`\n${grantName} defeated. ${userName} has ${numOfWins} out of 3 wins. \n\n`);
     }
-  }
-      let result = getResults(userName, numOfWins);
+    }
+      getResults(userName, numOfWins);
 }
 
   //Function to generate num for random number of 1 or 2
 function getRandomNum(num) {
-  return Math.floor(Math.random() * 2) + 1;
+  return Math.floor(Math.random() * maxNum) + 1;
 }
 
 //Function that determines win or loss
