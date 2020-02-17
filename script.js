@@ -50,7 +50,7 @@ function playGame() {
 }
 
   //Function to generate num for random number of 1 or 2
-function getRandomNum(num) {
+function getRandomNum() {
   return Math.floor(Math.random() * maxNum) + 1;
 }
 
